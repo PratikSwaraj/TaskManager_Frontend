@@ -18,7 +18,7 @@ function Dashboard({ token }) {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/tasks", {
+      const res = await axios.get("https://taskmanager-backend-shrw.onrender.com/api/tasks", {
         headers: { Authorization: token },
       });
       setTasks(res.data);
@@ -36,14 +36,14 @@ function Dashboard({ token }) {
     try {
       if (isEditing) {
         await axios.put(
-          `http://localhost:8080/api/tasks/${editTaskId}`,
+          `https://taskmanager-backend-shrw.onrender.com/api/tasks/${editTaskId}`,
           taskData,
           {
             headers: { Authorization: token },
           }
         );
       } else {
-        await axios.post("http://localhost:8080/api/tasks", taskData, {
+        await axios.post("https://taskmanager-backend-shrw.onrender.com/api/tasks", taskData, {
           headers: { Authorization: token },
         });
       }
@@ -62,7 +62,7 @@ function Dashboard({ token }) {
 
   const handleDelete = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/tasks/${taskId}`, {
+      await axios.delete(`https://taskmanager-backend-shrw.onrender.com/api/tasks/${taskId}`, {
         headers: { Authorization: token },
       });
       fetchTasks();
@@ -81,7 +81,7 @@ function Dashboard({ token }) {
     try {
       const token = localStorage.getItem("token");
 
-      await fetch("http://localhost:8080/api/auth/logout", {
+      await fetch("https://taskmanager-backend-shrw.onrender.com/api/auth/logout", {
         method: "POST",
         headers: { Authorization: token },
       });

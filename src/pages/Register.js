@@ -11,7 +11,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/auth/register", { email, password });
+      await axios.post("https://taskmanager-backend-shrw.onrender.com/api/auth/register", { email, password });
       navigate("/dashboard");
     } catch (err) {
       setError("Registration failed. Please try again.");

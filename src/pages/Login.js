@@ -11,7 +11,7 @@ function Login({ setToken }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post("https://taskmanager-backend-shrw.onrender.com/api/auth/login", {
         email,
         password,
       });
